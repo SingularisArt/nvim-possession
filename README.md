@@ -99,6 +99,18 @@ require("nvim-possession").setup({
 })
 ```
 
+### Autoload in cwd
+
+If you want to automagically load sessions defined for the current working directory at startup, specify
+
+```lua
+require("nvim-possession").setup({
+  autoload = true
+})
+```
+
+This autoloads sessions when starting neovim without file arguments (i. e. `$ nvim `) and in case such sessions explicitly contain a reference to the current working directory (you must have `vim.go.ssop+=curdir`); this is by design as this plugin intends to be as less invasive as possible.
+
 ## 🚥 Statusline
 
 You can call `require("nvim-possession").status()` as component in your statusline, for example with `lualine` you would have
